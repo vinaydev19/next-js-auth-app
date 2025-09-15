@@ -1,7 +1,7 @@
-import { dbConnect } from "@/app/db/dbConnect";
+import { dbConnect } from "@/db/dbConnect";
 import { User } from "@/models/user.model";
 import { NextRequest, NextResponse } from "next/server";
-import { getDataFromToken } from "@/app/helpers/getDataFromToken";
+import { getDataFromToken } from "@/helpers/getDataFromToken";
 
 dbConnect();
 

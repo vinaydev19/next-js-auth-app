@@ -1,8 +1,8 @@
-import { dbConnect } from "@/app/db/dbConnect";
+import { dbConnect } from "@/db/dbConnect";
 import { User } from "@/models/user.model";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import { sendEmail } from "@/app/helpers/mailer";
+import { sendEmail } from "@/helpers/mailer";
 
 dbConnect();
 
