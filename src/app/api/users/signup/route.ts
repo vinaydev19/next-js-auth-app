@@ -2,14 +2,14 @@ import { dbConnect } from "@/app/db/dbConnect";
 import { User } from "@/models/user.model";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import { sendMail } from "@/app/helpers/mailer";
+import { sendEmail } from "@/app/helpers/mailer";
 
 dbConnect();
 
-export async function POST(req: NextRequest) {
+export async function POST(request: NextRequest) {
   try {
-    const reqBody = await req.json();
-    const { username, email, password } = await reqBody;
+    const reqBody = await request.json();
+    const { username, email, password } = reqBody;
 
     console.log(reqBody);
 
@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
     console.log(savedUser);
 
     // send verification
-    await sendMail({ email, emailType: "VERIFY", userId: savedUser._id });
+    await sendEmail({ email, emailType: "VERIFY", userId: savedUser._id });
 
     return NextResponse.json({
       message: "user registered successfully",

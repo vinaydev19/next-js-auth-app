@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
         default: false
     },
     forgetPassword: {
-        type: String,
+        type: String,       
     },
     forgetPasswordTokenExpiry: {
         type: Date,
@@ -37,5 +37,5 @@ const userSchema = new mongoose.Schema({
     },
 })
 
-export const User = mongoose.model.users || mongoose.model("users", userSchema)
+export const User = mongoose.models.users || mongoose.model("users", userSchema);
 
